@@ -8,8 +8,8 @@ class MyGUI:
         # Create the main window.
         self.main_window = tkinter.Tk()
 
-        # Create two frames. One for the checkbuttons
-        # and another for the regular Button widgets.
+        # Created two frames, one for the checkbuttons
+        # and another for the regular button.
         self.top_frame = tkinter.Frame(self.main_window)
         self.bottom_frame = tkinter.Frame(self.main_window)
 
@@ -17,8 +17,8 @@ class MyGUI:
                                     text='Sandlins Pizzeria'
                                          '\n "SALE $15.00 PIZZA!"')
 
-        # Create three IntVar objects to use with
-        # the Checkbuttons.
+        # Create three objects to use with
+        # the checkbuttons.
         self.cb_var0 = tkinter.IntVar()
         self.cb_var1 = tkinter.IntVar()
         self.cb_var2 = tkinter.IntVar()
@@ -55,7 +55,7 @@ class MyGUI:
                                        text='Jalapeno $0.50',
                                        variable=self.cb_var4)
         self.cb5 = tkinter.Checkbutton(self.top_frame,
-                                       text='Mushroom $0.50',
+                                       text='Mushroom $0.75',
                                        variable=self.cb_var5)
 
         # Pack the Checkbuttons.
@@ -91,7 +91,7 @@ class MyGUI:
 
     def show_choice(self):
         # Create a message string.
-        self.message = 'Your Pizza Topping Order Summary:\n'
+        self.message = 'Your Selected Pizza Toppings:\n'
         # total
         total = 0
 
@@ -115,10 +115,11 @@ class MyGUI:
             total += 0.50
         if self.cb_var5.get() == 1:
             self.message = self.message + 'Mushroom\n'
-            total += 0.50
+            total += 0.75
         # print total with two digits after the decimal
         self.message = self.message + "Total : $%.2f" % total
 
+        
         # Display the message in an info dialog box.
         tkinter.messagebox.showinfo('Checkout', self.message)
 
